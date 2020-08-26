@@ -1,0 +1,10 @@
+all:
+  children:
+    ungrouped: {}
+    vms:
+      hosts:
+        vm1: {}
+        vm2: {}
+        vm3: {}
+      vars:
+        testvar: 1
