@@ -1,0 +1,7 @@
+all:
+  children:
+    ungrouped: {}
+    gp1:
+      hosts:
+      vars:
+        myvar: test
