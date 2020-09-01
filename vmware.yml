@@ -2,3 +2,7 @@ plugin: community.vmware.vmware_vm_inventory
 strict: False
 validate_certs: False
 with_tags: True
+hostnames: ['config.name']
+filters:
+  - config.name.startswith('Lab-')
+  - runtime.powerstate == 'poweredOn'
