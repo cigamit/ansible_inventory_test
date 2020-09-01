@@ -1,7 +1,60 @@
 plugin: community.vmware.vmware_vm_inventory
-strict: False
-validate_certs: False
-with_tags: True
-hostnames: ['config.name']
+compose:
+  ansible_host: guest.ipAddress
+  ansible_ssh_host: guest.ipAddress
+  ansible_uuid: 99999999 | random | to_uuid
+  availablefield: availableField
+  configissue: configIssue
+  configstatus: configStatus
+  customvalue: customValue
+  effectiverole: effectiveRole
+  guestheartbeatstatus: guestHeartbeatStatus
+  layoutex: layoutEx
+  overallstatus: overallStatus
+  parentvapp: parentVApp
+  recenttask: recentTask
+  resourcepool: resourcePool
+  rootsnapshot: rootSnapshot
+  triggeredalarmstate: triggeredAlarmState
 filters:
-  - config.name.startswith('Lab-') and runtime.powerstate == 'poweredOn'
+- config.name.startswith('Lab-') and runtime.powerstate == 'poweredOn'
+hostnames:
+- config.name
+keyed_groups:
+- key: guest.guestId
+  prefix: ''
+  separator: ''
+- key: '"templates" if config.template else "guests"'
+  prefix: ''
+  separator: ''
+properties:
+- availableField
+- configIssue
+- configStatus
+- customValue
+- datastore
+- effectiveRole
+- guestHeartbeatStatus
+- layout
+- layoutEx
+- name
+- network
+- overallStatus
+- parentVApp
+- permission
+- recentTask
+- resourcePool
+- rootSnapshot
+- snapshot
+- tag
+- triggeredAlarmState
+- value
+- capability
+- config
+- guest
+- runtime
+- storage
+- summary
+strict: false
+with_nested_properties: true
+with_tags: True
