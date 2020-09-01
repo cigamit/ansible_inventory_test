@@ -4,5 +4,4 @@ validate_certs: False
 with_tags: True
 hostnames: ['config.name']
 filters:
-  - config.name.startswith('Lab-')
-  - runtime.powerstate == 'poweredOn'
+  - config.name.startswith('Lab-') and runtime.powerstate == 'poweredOn'
