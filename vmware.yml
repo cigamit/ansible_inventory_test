@@ -30,6 +30,10 @@ keyed_groups:
 - key: '"templates" if config.template else "guests"'
   prefix: ''
   separator: ''
+- key: guest.toolsStatus
+  separator: ''
+- key: guest.toolsRunningStatus
+  separator: ''
 properties:
 - availableField
 - configIssue
